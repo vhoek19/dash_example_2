@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[44]:
+# In[ ]:
 
 
 import dash
@@ -19,7 +19,6 @@ df = pd.read_csv('nama_10_gdp_1_Data.csv')
 df = df.rename(columns={'NA_ITEM': 'Indicator', 'TIME': 'Time', 'GEO': 'Country', 'UNIT': 'Unit'})
 searchfor = ['Euro']
 df = df[~df.Country.str.contains('|'.join(searchfor))]
-df
 
 available_indicators = df['Indicator'].unique()
 available_countries = df['Country'].unique()
@@ -56,7 +55,7 @@ app.layout = html.Div([
                 value='Linear',
                 labelStyle={'display': 'inline-block'}
             )
-        ],style={'width': '48%', 'display': 'inline-block'}) #this takes the other size, if you take 100% the div will just be place down
+        ],style={'width': '48%', 'float': 'right', 'display': 'inline-block'}) #this takes the other size, if you take 100% the div will just be place down
     ]),
 
     dcc.Graph(id='indicator-graphic'),
@@ -73,7 +72,6 @@ app.layout = html.Div([
         html.Div([], style={'height': '50px'}),
     
 # Graph 2 - block
-   
         html.Div([
           html.Div([
             dcc.Dropdown(
@@ -99,7 +97,6 @@ app.layout = html.Div([
 ])
 
 # Graph 1 - block
-
 @app.callback(   
     dash.dependencies.Output('indicator-graphic', 'figure'),
     [dash.dependencies.Input('xaxis-column-a', 'value'),
@@ -174,12 +171,12 @@ def update_graph(xaxis_column_name, yaxis_column_name,
 
 # Graph 2 - block
 
-@app.callback(   
+@app.callback(    
     dash.dependencies.Output('indicator-graphic2', 'figure'),
     [dash.dependencies.Input('xaxis-column-b', 'value'),
      dash.dependencies.Input('yaxis-column-b', 'value')])
 
-def update_graph2(xaxis_column_name_b, yaxis_column_name_b):
+def update_graph2 (xaxis_column_name_b, yaxis_column_name_b):
     
     dff1 = df[df['Unit'] == "Current prices, million euro"]
     dff2 = dff1[dff1['Country'] == xaxis_column_name_b]
@@ -243,5 +240,5 @@ def update_graph2(xaxis_column_name_b, yaxis_column_name_b):
     }
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
 
