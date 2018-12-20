@@ -243,5 +243,5 @@ def update_graph2(xaxis_column_name_b, yaxis_column_name_b):
     }
 
 if __name__ == '__main__':
-    app.run_server(debug=True))
+    app.run_server(debug=True)
 
