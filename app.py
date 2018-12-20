@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[51]:
 
 
 import dash
@@ -225,7 +225,6 @@ def update_graph2 (xaxis_column_name_b, yaxis_column_name_b):
                 linewidth=2,
                 ticks='outside',
                 tickcolor='rgb(74, 76, 79)',
-                automargin=True,
                 tickwidth=2,
                 ticklen=5,
                 tickfont=dict(
@@ -240,5 +239,6 @@ def update_graph2 (xaxis_column_name_b, yaxis_column_name_b):
     }
 
 if __name__ == '__main__':
+    app.run_server()
     app.run_server()
 
