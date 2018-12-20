@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[51]:
+# In[ ]:
 
 
 import dash
@@ -24,7 +24,7 @@ available_indicators = df['Indicator'].unique()
 available_countries = df['Country'].unique()
 
 app.layout = html.Div([
-    html.H1('Dashboard Eurostat: GDP and main components (output, expenditure and income)',
+    html.H3('Dashboard Eurostat: GDP and main components (output, expenditure and income)',
                 style={'textAlign': 'center', 'font-family':'arial,calibri,serif'}),
 # Graph 1 - block
     html.Div([
