@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[42]:
+# In[44]:
 
 
 import dash
@@ -243,6 +243,5 @@ def update_graph2(xaxis_column_name_b, yaxis_column_name_b):
     }
 
 if __name__ == '__main__':
-    app.run_server()
-    app.run_server()
+    app.run_server(debug=True))
 
